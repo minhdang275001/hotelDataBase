@@ -1,0 +1,252 @@
+<html>
+<head><title>Hotel Database Management</title>
+</head>
+<body>
+	<h1>Hotel Database Management</h1>
+	<h2>Show data</h2>
+<form action="show.php" method="post">
+	<label for="showType">Search for:</label>
+
+	<select name="showType" id="showType">
+		<option value="all"selected>All Tables</option>
+		<option value="customer">Customer</option>
+		<option value="order_list">Order list</option>
+		<option value="product">Product</option>
+		<option value="branch">Branch</option>
+		<option value="contains">Contains</option>
+		<option value="offers">Offers</option>
+	</select>
+
+	<input type="submit" value="Submit">
+</form>
+
+
+
+<!--khúc này vô search nè-->
+	<h2>Search for data</h2>
+<form action="result.php" method="post">
+	<label for="ftype">Search for:</label>
+
+	<select name="ftype" id="ftype">
+		<option value="customer">Customer</option>
+		<option value="order_list">Order list</option>
+		<option value="product"selected>Product</option>
+		<option value="branch">Branch</option>
+		<option value="contains">Contains</option>
+		<option value="offers">Offers</option>
+	</select>
+
+	<label for="fname">Name:</label>
+	<input type="text" name="fname" id="fname" placeholder="Name, title...">
+
+	<input type="submit" value="Submit">
+</form>
+
+
+
+<!--khúc này vô Update nè-->
+<h2>Update Database</h2>
+<form action="update.php" method="post">
+	<label for="utype">Update for:</label>
+
+
+<!--dươi khúc này là chọn value là bảng nào-->
+	<select name="utype" id="utype" required onchange="update(this)">
+		<option disabled value selected>Choose</option>
+		<option value="customer">Customer</option>
+		<option value="order_list">Order list</option>
+		<option value="product"		>Product</option>
+		<option value="branch">Branch</option>
+		<option value="contains">Contains</option>
+		<option value="offers">Offers</option>
+		<option value="studentent">Student</option>
+		<option value="instructor">Instructor</option>
+		<option value="course">Course</option>
+	</select>
+
+
+<!--khúc này m phải làm sao để chỉnh sửa table theo mấy cái value trên-->
+	<table>
+		<tr id="att1">
+			
+		</tr>
+		<tr id="att2">
+			
+		</tr>
+		<tr id="att3">
+			
+		</tr>
+		<tr id="att4">
+			
+		</tr>
+		<tr id="att5">
+
+		</tr>
+		<tr id="att6">
+
+		</tr>
+		<tr id="att6">
+
+		</tr>
+		<tr id="att8">
+
+		</tr>
+		<tr id="att9">
+
+		</tr>
+		<tr id="att10">
+
+		</tr>
+		<tr id="att11">
+
+		</tr>
+		<tr id="att12">
+
+		</tr>
+		<tr id="att13">
+		</tr>
+	</table>
+	<input type="submit" value="Submit">		
+</form>
+
+
+<!--sửa khúc dưới này để show ra theo từng bảng, k hiểu code cũng hong sao,
+cứ follow theo khuôn là ok-->
+<script>
+	function update(obj) { //có tổng 13 att vì bảng customer có tận 13 att
+		var att1 = document.getElementById('att1');
+		var att2 = document.getElementById('att2');
+		var att3 = document.getElementById('att3');
+		var att4 = document.getElementById('att4');
+		var att5 = document.getElementById('att5');
+		var att6 = document.getElementById('att6');
+		var att7 = document.getElementById('att7');
+		var att8 = document.getElementById('att8');
+		var att9 = document.getElementById('att9');
+		var att10 = document.getElementById('att10');
+		var att11 = document.getElementById('att11');
+		var att12 = document.getElementById('att12');
+		var att13 = document.getElementById('att13');
+	
+//sửa chủ yếu thêm đống if else giống dưới cho từng trường hợp
+  		var value = obj.value;
+	  	if (value === "customer") {
+	    	att1.innerHTML = "<td >customer_id:</td>" 
+	    	+ "<td><input type='text' name='uid' required></td>";
+	    	att2.innerHTML = "<td >New first_name:</td>" 
+	    	+ "<td><input type='text' name='uatt2' required></td>";
+	    	att3.innerHTML = "<td >New last_name:</td>"
+			+ "<td><select name='uatt3' required>"
+	    	att4.innerHTML = "<td >personal_number:</td>"
+			+ "<td><input type='text' name='uatt4' required></td>";
+			att5.innerHTML = "<td >gender:</td>"
+			+ "<td><input type='text' name='uatt5' required></td>";
+			att6.innerHTML = "<td >street:</td>"
+			+ "<td><input type='text' name='uatt6' required></td>";
+			att7.innerHTML = "<td >city:</td>"
+			+ "<td><input type='text' name='uatt7' required></td>";
+			att8.innerHTML = "<td >state:</td>"
+			+ "<td><input type='text' name='uatt8' required></td>";
+			att9.innerHTML = "<td >country:</td>"
+			+ "<td><input type='text' name='uatt9' required></td>";
+			att10.innerHTML = "<td >contact:</td>"
+			+ "<td><input type='text' name='uatt10' required></td>";
+			att11.innerHTML = "<td >email:</td>"
+			+ "<td><input type='text' name='uatt11' required></td>";
+			att12.innerHTML = "<td >dob:</td>"
+			+ "<td><input type='text' name='uatt12' required></td>";
+			att13.innerHTML = "<td >point:</td>"
+			+ "<td><input type='text' name='uatt13' required></td>";
+	  	}
+	  	else if (value === "order_list") {
+	    	att1.innerHTML = "<td >order_id:</td>" 
+	    	+ "<td><input type='text' name='uid' required></td>";
+	    	att2.innerHTML = "<td >type:</td>" 
+	    	+ "<td><input type='text' name='uatt2' required></td>";
+	    	att3.innerHTML = "<td >payment_type:</td>"
+	    	+ "<td><input type='text' name='uatt3' required></td>";
+	    	att4.innerHTML = "<td >payment_status:</td>"
+			+ "<td><input type='text' name='uatt4' required></td>";
+			att5.innerHTML = "<td >order_date:</td>" 
+	    	+ "<td><input type='text' name='uatt5' required></td>";
+	    	att6.innerHTML = "<td >check_in:</td>" 
+	    	+ "<td><input type='text' name='uatt6' required></td>";
+	    	att7.innerHTML = "<td >check_out:</td>" 
+	    	+ "<td><input type='text' name='uatt7' required></td>";
+	    	att8.innerHTML = "<td >status:</td>" 
+	    	+ "<td><input type='text' name='uatt8' required></td>";
+	    	att9.innerHTML = "<td >total_cost:</td>" 
+	    	+ "<td><input type='text' name='uatt9' required></td>";
+	    	att10.innerHTML = "<td >note:</td>" 
+	    	+ "<td><input type='text' name='uatt10' required></td>";
+	    	att11.innerHTML = "<td >customer_id:</td>" 
+	    	+ "<td><input type='text' name='uatt11' required></td>";
+	  	}
+	  	else if (value === "product") {
+	    	att1.innerHTML = "<td >product_id:</td>" 
+	    	+ "<td><input type='text' name='uid' required></td>";
+	    	att2.innerHTML = "<td >name:</td>" 
+	    	+ "<td><input type='text' name='uatt2' required></td>";
+	    	att3.innerHTML = "<td >type:</td>"
+			+ "<td><input type='text' name='uatt3' required></td>";
+	    	att4.innerHTML = "<td >time:</td>"
+			+ "<td><input type='text' name='uatt4' required></td>";
+			att5.innerHTML = "<td >quantity:</td>"
+			+ "<td><input type='text' name='uatt5' required></td>";
+			att6.innerHTML = "<td >price:</td>"
+			+ "<td><input type='text' name='uatt6' required></td>";
+			att7.innerHTML = "<td >discount:</td>"
+			+ "<td><input type='text' name='uatt7' required></td>";
+			att8.innerHTML = "<td >product_details:</td>"
+			+ "<td><input type='text' name='uatt8' required></td>";
+			att9.innerHTML = "<td >status:</td>"
+			+ "<td><input type='text' name='uatt9' required></td>";
+			att10.innerHTML = "<td >note:</td>"
+			+ "<td><input type='text' name='uatt10' required></td>";
+	  	}
+	  	else if (value === "branch") {
+	    	att1.innerHTML = "<td >branch_id:</td>" 
+	    	+ "<td><input type='text' name='uid' required></td>";
+	    	att2.innerHTML = "<td >name:</td>" 
+	    	+ "<td><select name='uatt2' required>"
+			+	"<option value=" + "Comp. Sci." + ">Comp. Sci.</option>"
+			+	"<option value='Flexidy'>Flexidy</option>"
+			+	"<option value='Kanlam'>Kanlam</option>"
+			+	"<option value='Ronstring'>Ronstring</option>"
+			+	"<option value='Voyatouch'>Voyatouch</option>"
+			+	"<option value='Holdlamis'>Holdlamis</option>"
+			+"</select></td>";
+	    	att3.innerHTML = "<td >contact:</td>"
+			+ "<td><input type='text' name='uatt3' required></td>";
+			att4.innerHTML = "<td >street:</td>"
+			+ "<td><input type='text' name='uatt4' required></td>";
+			att5.innerHTML = "<td >city:</td>"
+			+ "<td><input type='text' name='uatt5' required></td>";
+			att6.innerHTML = "<td >state:</td>"
+			+ "<td><input type='text' name='uatt6' required></td>";
+			att7.innerHTML = "<td >country:</td>"
+			+ "<td><input type='text' name='uatt7' required></td>";
+			att8.innerHTML = "<td >contact:</td>"
+			+ "<td><input type='text' name='uatt8' required></td>";
+			att9.innerHTML = "<td >manager_fname:</td>"
+			+ "<td><input type='text' name='uatt9' required></td>";
+			att10.innerHTML = "<td >manager_lname:</td>"
+			+ "<td><input type='text' name='uatt10' required></td>";
+	  	}
+	  	else if (value === "contains") {
+	    	att1.innerHTML = "<td >order_id:</td>" 
+	    	+ "<td><input type='text' name='uid' required></td>";
+	    	att2.innerHTML = "<td >product_id:</td>" 
+	    	+ "<td><input type='text' name='uatt2' required></td>";
+	    }
+	    else if (value === "offer") {
+	    	att1.innerHTML = "<td >branch_id:</td>" 
+	    	+ "<td><input type='text' name='uid' required></td>";
+	    	att2.innerHTML = "<td >product_id:</td>" 
+	    	+ "<td><input type='text' name='uatt2' required></td>";
+	    }
+}
+</script>
+
+</body>
+</html>
